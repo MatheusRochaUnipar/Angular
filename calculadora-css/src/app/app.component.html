@@ -1,0 +1,82 @@
+<main class="pagina">
+  <header class="cabecalho">
+    <h1>Calculadoras</h1>
+    <p>Dois exercícios, dois cards: troco e preço por quilo</p>
+  </header>
+
+  <section class="cards">
+    <!-- Card 1: Calculadora de Troco -->
+    <article class="card">
+      <div class="card_icone">🧮</div>
+      <h2 class="card_titulo">Calculadora de troco</h2>
+
+      <div class="campo">
+        <label for="valorPago">Valor Pago (R$)</label>
+        <input 
+          id="valorPago" 
+          type="number" 
+          min="0" 
+          step="0.01"
+          [(ngModel)]="valorPago" 
+          placeholder="0,00"
+        />
+      </div>
+
+      <div class="campo">
+        <label for="precoProduto">Preço do Produto (R$)</label>
+        <input 
+          id="precoProduto" 
+          type="number" 
+          min="0" 
+          step="0.01"
+          [(ngModel)]="precoProduto" 
+          placeholder="0,00"
+        />
+      </div>
+
+      <div class="resultado" [class.resultado-negativo]="valorPago < precoProduto">
+        <span class="resultado-rotulo">Troco</span>
+        <span class="resultado-valor">
+          R$ {{ calcularTroco().toFixed(2) }}
+        </span>
+      </div>
+    </article>
+
+    <!-- Card 2: Preço por Quilo -->
+    <article class="card">
+      <div class="card_icone">⚖️</div>
+      <h2 class="card_titulo">Preço por Quilo</h2>
+
+      <div class="campo">
+        <label for="precoQuilo">Preço do quilo (R$)</label>
+        <input 
+          id="precoQuilo" 
+          type="number" 
+          min="0" 
+          step="0.01"
+          [(ngModel)]="precoQuilo" 
+          placeholder="0,00"
+        />
+      </div>
+
+      <div class="campo">
+        <label for="quantidadeQuilos">Quantidade (kg)</label>
+        <input 
+          id="quantidadeQuilos" 
+          type="number" 
+          min="0" 
+          step="0.001"
+          [(ngModel)]="quantidadeQuilos" 
+          placeholder="0,000"
+        />
+      </div>
+
+      <div class="resultado">
+        <span class="resultado-rotulo">Total a pagar</span>
+        <span class="resultado-valor">
+          R$ {{ calcularValorFinal().toFixed(2) }}
+        </span>
+      </div>
+    </article>
+  </section>
+</main>

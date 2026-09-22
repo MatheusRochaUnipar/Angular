@@ -1,0 +1,29 @@
+<div style="text-align: center; margin-top: 50px;">
+  <h1>Ola, {{ nome }}</h1>
+  <button (click)="mudarNome()">Trocar Nome</button>
+</div>
+
+<div style="margin-top: 3rem;">
+  <input 
+    [(ngModel)]="num1"
+    type="number"
+    placeholder="Informe um numero">
+  
+  <input 
+    [(ngModel)]="num2"
+    type="number"
+    placeholder="Informe outro numero">
+
+
+    <div style="margin-top: 1rem;" >
+      <button style="margin: 5px;" (click)="somar()">Somar</button>
+      <button style="margin: 5px;" (click)="diminuir()">Diminuir</button>
+      <button style="margin: 5px;" (click)="multiplicar()">Multiplicar</button>
+      <button style="margin: 5px;" (click)="dividir()">Dividir</button>
+    </div>
+
+    <div style="font-family: Arial, Helvetica, sans-serif; margin-top: 1rem;">
+      Resultado: {{ resultado }}
+    </div>
+
+</div>

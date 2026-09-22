@@ -1,0 +1,221 @@
+<div class="container">
+
+  <div class="navegacao">
+    <button (click)="anterior()" [disabled]="exercicioAtual === 1">Anterior</button>
+    <span>{{exercicioAtual}} / {{totalExercicios}}</span>
+    <button (click)="proximo()" [disabled]="exercicioAtual === totalExercicios">Próximo</button>
+  </div>
+
+  <!-- Ex1 -->
+  <div class="box" *ngIf="exercicioAtual === 1">
+
+    <h2>Exercicio 1 - Calcular Troco</h2>
+
+    <div class="campo">
+      <label for="numValorPago">Informe o Valor Pago:</label>
+      <input [(ngModel)]="numValorPago" id="numValorPago" type="number">
+    </div>
+
+    <div class="campo">
+      <label for="numValorPreco">Informe o Preço do Produto:</label>
+      <input [(ngModel)]="numValorPreco" id="numValorPreco" type="number">
+    </div>
+
+    <div class="botoes">
+      <button (click)="calcularTroco()">Calcular</button>
+    </div>
+
+    <div class="resultados" *ngIf="resultadoEx1 !== null">
+      <p>Valor do Troco: {{resultadoEx1}}</p>
+    </div>
+
+  </div>
+
+  <!-- Ex2 -->
+  <div class="box" *ngIf="exercicioAtual === 2">
+
+    <h2>Exercicio 2 - Calcular Valor do Produto X Quilos</h2>
+
+    <div class="campo">
+      <label for="numValorQuilo">Informe o Valor do Quilo:</label>
+      <input [(ngModel)]="numValorQuilo" id="numValorQuilo" type="number">
+    </div>
+
+    <div class="campo">
+      <label for="numValorQuantidade">Informe a Quantidade de Quilos:</label>
+      <input [(ngModel)]="numValorQuantidade" id="numValorQuantidade" type="number">
+    </div>
+
+    <div class="botoes">
+      <button (click)="calcularQuilo()">Calcular</button>
+    </div>
+
+    <div class="resultados" *ngIf="resultadoEx2 !== null">
+      <p>Valor do Produto: {{resultadoEx2}}</p>
+    </div>
+
+  </div>
+
+  <!-- Ex3 -->
+  <div class="box" *ngIf="exercicioAtual === 3">
+
+    <h2>Exercicio 3 - Calcular Saldo com Reajuste de 1%</h2>
+
+    <div class="campo">
+      <label for="numValorSaldo">Informe o saldo:</label>
+      <input [(ngModel)]="numValorSaldo" id="numValorSaldo" type="number">
+    </div>
+
+    <div class="botoes">
+      <button (click)="calcularReajuste()">Calcular</button>
+    </div>
+
+    <div class="resultados" *ngIf="resultadoEx3 !== null">
+      <p>Saldo com Reajuste: {{resultadoEx3}}</p>
+    </div>
+
+  </div>
+
+  <!-- Ex4 -->
+  <div class="box" *ngIf="exercicioAtual === 4">
+
+    <h2>Exercicio 4 - Calcular Média aritmética, Média Ponderada, Média das Média e Soma das Médias</h2>
+
+    <div class="campo">
+      <label for="numValor1">Informe o Valor 1:</label>
+      <input [(ngModel)]="numValor1" id="numValor1" type="number">
+    </div>
+
+    <div class="campo">
+      <label for="numValor2">Informe o Valor 2:</label>
+      <input [(ngModel)]="numValor2" id="numValor2" type="number">
+    </div>
+
+    <div class="campo">
+      <label for="numValor3">Informe o Valor 3:</label>
+      <input [(ngModel)]="numValor3" id="numValor3" type="number">
+    </div>
+
+    <div class="botoes">
+      <button (click)="calcularMediaAritmetica()">Calcular</button>
+    </div>
+
+    <div class="resultados" *ngIf="resultadoA !== null">
+      <p>Média Aritmética: {{resultadoA}}</p>
+    </div>
+
+    <div class="resultados" *ngIf="resultadoB !== null">
+      <p>Média Ponderada: {{resultadoB}}</p>
+    </div>
+
+    <div class="resultados" *ngIf="resultadoC !== null">
+      <p>Média das Média: {{resultadoC}}</p>
+    </div>
+
+    <div class="resultados" *ngIf="resultadoD !== null">
+      <p>Soma das Médias: {{resultadoD}}</p>
+    </div>
+
+  </div>
+
+  <!-- Ex5 -->
+  <div class="box" *ngIf="exercicioAtual === 5">
+
+    <h2>Exercicio 5 - Verificar qual numero é Maior</h2>
+
+    <div class="campo">
+      <label for="numValor4">Informe o Valor 1:</label>
+      <input [(ngModel)]="numValor4" id="numValor4" type="number">
+    </div>
+
+    <div class="campo">
+      <label for="numValor5">Informe o Valor 2:</label>
+      <input [(ngModel)]="numValor5" id="numValor5" type="number">
+    </div>
+
+    <div class="botoes">
+      <button (click)="calcularNumMaior()">Calcular</button>
+    </div>
+
+    <div class="resultados" *ngIf="numMaior !== null">
+      <p>Numero maior: {{numMaior}}</p>
+    </div>
+
+  </div>
+
+  <!-- Ex6 -->
+  <div class="box" *ngIf="exercicioAtual === 6">
+
+    <h2>Exercicio 6 - Verificar qual numero é Menor</h2>
+
+    <div class="campo">
+      <label for="num1Ex6">Informe o Valor 1:</label>
+      <input [(ngModel)]="num1Ex6" id="num1Ex6" type="number">
+    </div>
+
+    <div class="campo">
+      <label for="num2Ex6">Informe o Valor 2:</label>
+      <input [(ngModel)]="num2Ex6" id="num2Ex6" type="number">
+    </div>
+
+    <div class="campo">
+      <label for="num3Ex6">Informe o Valor 3:</label>
+      <input [(ngModel)]="num3Ex6" id="num3Ex6" type="number">
+    </div>
+
+    <div class="campo">
+      <label for="num4Ex6">Informe o Valor 4:</label>
+      <input [(ngModel)]="num4Ex6" id="num4Ex6" type="number">
+    </div>
+
+    <div class="botoes">
+      <button (click)="calcularNumMenor()">Calcular</button>
+    </div>
+
+    <div class="resultados" *ngIf="numMenor !== null">
+      <p>Numero menor: {{numMenor}}</p>
+    </div>
+
+  </div>
+
+  <!-- Ex7 -->
+  <div class="box" *ngIf="exercicioAtual === 7">
+
+    <h2>Exercicio 7 - Verificar se numero é Impar</h2>
+
+    <div class="campo">
+      <label for="num1Ex7">Informe um Numero: </label>
+      <input [(ngModel)]="num1Ex7" id="num1Ex7" type="number">
+    </div>
+
+    <div class="botoes">
+      <button (click)="calcularNumParImpar()">Calcular</button>
+    </div>
+
+    <div class="resultados" *ngIf="resultadoEx7 !== null">
+      <p>{{resultadoEx7}}</p>
+    </div>
+
+  </div>
+
+  <!-- Ex8 -->
+  <div class="box" *ngIf="exercicioAtual === 8">
+
+    <h2>Exercicio 8 - Retornar nome Produto pelo Codigo</h2>
+
+    <div class="campo">
+      <label for="codProduto">Informe um codigo (001, 002 ou 003): </label>
+      <input [(ngModel)]="codProduto" id="codProduto" type="text">
+    </div>
+
+    <div class="botoes">
+      <button (click)="verificaCod()">Calcular</button>
+    </div>
+
+    <div class="resultados" *ngIf="resultadoEx8 !== null">
+      <p>Produto: {{resultadoEx8}}</p>
+    </div>
+
+  </div>
+
+</div>
