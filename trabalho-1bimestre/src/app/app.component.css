@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 35rem;
+    border: 0.1rem solid #ccc;
+}
+
+.card_titulo {
+  text-align: center;
+}
+
+.card_imagem {
+    width: var(--tamanho-imagem-largura);
+    height: var(--tamanho-imagem-altura);
+}
+
+.nota_estrelas {
+    cursor: pointer;
+}
+
+.nota_estrelas span {
+  font-size: 1.5rem;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.nota_estrelas span.preenchida {
+  color: gold;
+}

@@ -1,0 +1,33 @@
+<div class="container">
+
+    <div class="box">
+
+        <h2>Galeria de Filmes</h2>
+
+        <div class="card">
+
+            <h3 class="card_titulo">Titulo</h3>
+
+            <img class="card_imagem" src="A_Sociedade_do_Anel.jpg" alt="Imagem da Capa do Filme Senhor dos Aneis">
+
+            <div class="nota_estrelas">
+                 <span
+                    *ngFor="let estrela of estrelas"
+                    (click)="selecionarNota(estrela)"
+                    [class.preenchida]="notaSelecionada >= estrela">
+                    ★
+                </span>
+            </div>
+
+            <p>Nota: {{ notaSelecionada }} / 10</p>
+
+            <p>Genero</p>
+
+            <p>Assistido</p>
+
+        </div>
+
+        <!-- <img src="As_duas_torres.jpg" alt="">
+        <img src="O_retorno_do_rei.jpg" alt=""> -->
+</div>
+</div>
