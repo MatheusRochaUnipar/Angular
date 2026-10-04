@@ -2,32 +2,110 @@
 
     <div class="box">
 
-        <h2>Galeria de Filmes</h2>
+        <div class="marquise">
+            <h1 class="titulo_galeria">Galeria de Filmes</h1>
+        </div>
 
-        <div class="card">
+        <div class="caixa_busca">
 
-            <h3 class="card_titulo">Titulo</h3>
+            <input
+                class="busca_filme"
+                type="text"
+                placeholder="Buscar por título"
+                [(ngModel)]="busca">
 
-            <img class="card_imagem" src="A_Sociedade_do_Anel.jpg" alt="Imagem da Capa do Filme Senhor dos Aneis">
-
-            <div class="nota_estrelas">
-                 <span
-                    *ngFor="let estrela of estrelas"
-                    (click)="selecionarNota(estrela)"
-                    [class.preenchida]="notaSelecionada >= estrela">
-                    ★
-                </span>
-            </div>
-
-            <p>Nota: {{ notaSelecionada }} / 10</p>
-
-            <p>Genero</p>
-
-            <p>Assistido</p>
+            <ul class="sugestoes" *ngIf="buscando">
+                <li *ngFor="let filme of sugestoes">
+                    <button type="button" (click)="irParaFilme(filme)">{{ filme.titulo }}</button>
+                </li>
+                <li class="sem_resultado" *ngIf="sugestoes.length === 0">Nenhum filme encontrado.</li>
+            </ul>
 
         </div>
 
-        <!-- <img src="As_duas_torres.jpg" alt="">
-        <img src="O_retorno_do_rei.jpg" alt=""> -->
-</div>
+        <div class="navegacao">
+
+            <button type="button" class="seta" (click)="anterior()" aria-label="Filme anterior">‹</button>
+
+            <button type="button" class="capa_vizinha" (click)="anterior()" tabindex="-1" aria-hidden="true">
+                <img [src]="filmeAnterior.imagem" alt="">
+            </button>
+
+            <ng-container *ngFor="let filme of filmes; let i = index">
+
+                <div class="card" *ngIf="i === indiceAtual">
+
+                    <img class="card_imagem" [src]="filme.imagem" [alt]="'Capa do filme ' + filme.titulo">
+
+                    <section class="ingresso">
+
+                        <h3 class="ingresso_titulo">{{ filme.titulo }}</h3>
+
+                        <p class="ingresso_generos">Gêneros: {{ filme.generos }}</p>
+
+                        <div class="ingresso_rodape">
+
+                            <div class="linha">
+                                <div class="nota_estrelas" title="Clique de novo na mesma estrela para zerar a nota">
+                                    <span
+                                        *ngFor="let estrela of estrelas"
+                                        (click)="selecionarNota(filme, estrela)"
+                                        [class.preenchida]="filme.nota >= estrela">
+                                        ★
+                                    </span>
+                                </div>
+                                <span class="nota">Nota: {{ filme.nota }} / 10</span>
+                            </div>
+
+                            <div class="linha">
+                                <button
+                                    type="button"
+                                    class="filme_assistido"
+                                    [class.ativo]="filme.assistido"
+                                    (click)="alternarFilmeAssistido(filme)">
+                                    <span *ngIf="filme.assistido; else querAssistir">✔ Já assisti</span>
+                                    <ng-template #querAssistir>○ Quero assistir</ng-template>
+                                </button>
+                                <span class="contador">{{ indiceAtual + 1 }} de {{ filmes.length }}</span>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </ng-container>
+
+            <button type="button" class="capa_vizinha" (click)="proximo()" tabindex="-1" aria-hidden="true">
+                <img [src]="filmeProximo.imagem" alt="">
+            </button>
+
+            <button type="button" class="seta" (click)="proximo()" aria-label="Próximo filme">›</button>
+
+        </div>
+
+        <section class="lista_filmes">
+
+            <h3 class="lista_filmes_titulo">Lista de Filmes</h3>
+
+            <ul class="lista_filmes_itens">
+                <li *ngFor="let filme of filmes; let i = index">
+                    <button
+                        type="button"
+                        class="lista_filmes_item"
+                        [class.atual]="i === indiceAtual"
+                        (click)="irParaFilme(filme)">
+                        <span>{{ filme.titulo }}</span>
+                        <span class="lista_filmes_status">
+                            <span *ngIf="filme.assistido">✔</span>
+                            <span *ngIf="filme.nota > 0">{{ filme.nota }}/10</span>
+                        </span>
+                    </button>
+                </li>
+            </ul>
+
+        </section>
+
+    </div>
 </div>

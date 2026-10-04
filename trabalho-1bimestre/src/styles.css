@@ -1,4 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Limelight&display=swap');
+
 :root {
-    --tamanho-imagem-largura: 12rem;
-    --tamanho-imagem-altura: 10rem;
+    --tamanho-imagem-largura: 16rem;
+    --tamanho-imagem-altura: 23rem;
+    --espaco-pequeno: 1rem;
+    --espaco-medio: 2.2rem;
+    --espaco-grande: 2.6rem;
+
+    --cor-fundo: #160a0d;
+    --cor-veludo: #7a1424;
+    --cor-veludo-escuro: #3f0a13;
+    --cor-dourado: #e7b84a;
+    --cor-papel: #efe3c6;
+    --cor-tinta: #2b1d14;
+    --cor-texto: #f4ead4;
+    --cor-texto-suave: #a8987c;
+    --cor-tinta-suave: #6b5740;
+    --cor-estrela-vazia: #cbb98f;
+    --cor-estrela-cheia: #c98a00;
+    --cor-verde-assistido: #1f5a34;
+    --largura-cortina: clamp(0.6rem, 8vw, 6.5rem);
+
+    --fonte-titulo: 'Limelight', Georgia, serif;
+    --fonte-texto: 'DM Sans', system-ui, sans-serif;
 }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--fonte-texto);
+    color: var(--cor-texto);
+    background:
+        radial-gradient(ellipse 70% 40% at 50% 0, rgba(231, 184, 74, 0.22), transparent 70%),
+        var(--cor-fundo);
+}
+
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: var(--largura-cortina);
+    z-index: 0;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.8);
+    background: repeating-linear-gradient(
+        90deg,
+        var(--cor-veludo-escuro) 0,
+        var(--cor-veludo) 0.9rem,
+        var(--cor-veludo-escuro) 1.8rem
+    );
+}
+
+body::before { left: 0; }
+body::after { right: 0; }
