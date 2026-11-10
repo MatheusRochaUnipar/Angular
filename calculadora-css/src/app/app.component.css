@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.pagina {
+  min-height: 100vh;
+  background: var(--cor-fundo);
+  padding: 3rem 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--cor-texto);
+}
+
+.cabecalho {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto 2.5rem;
+}
+
+.cabecalho h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 0.5rem;
+}
+
+.cabecalho p {
+  color: var(--cor-texto-suave);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--espaco);
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--cor-card);
+  border-radius: var(--borda-raio);
+  box-shadow: var(--sombra-card);
+  padding: var(--espaco);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: entrada 0.5s ease both;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-card-hover);
+}
+
+.card_icone {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: var(--cor-fundo);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.card_titulo {
+  margin: 0 0 1.25rem;
+  font-size: 1.15rem;
+}
+
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+  font-weight: 600;
+}
+
+.campo input {
+  width: 100%;
+  border: 1.5px solid #e2e5ee;
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campo input:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(76, 111, 255, 0.15);
+}
+
+.resultado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--cor-fundo);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  margin-top: 0.5rem;
+  border-left: 4px solid var(--cor-sucesso);
+  transition: border-color 0.2s ease;
+}
+
+.resultado-negativo {
+  border-left: 4px solid var(--cor-erro);
+}
+
+.resultado-rotulo {
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+.resultado-valor {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+}

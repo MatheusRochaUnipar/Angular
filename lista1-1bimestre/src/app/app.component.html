@@ -1,0 +1,14 @@
+<div class="container">
+<nav class="hotbar">
+  @for (ex of exercicios; track ex.id) {
+    <button type="button" [class.ativo]="ex.id === ativo()" (click)="abrir(ex)">
+      <small>Ex. {{ ex.id }}</small>
+      {{ ex.titulo }}
+    </button>
+  }
+</nav>
+
+<main class="conteudo">
+  <router-outlet />
+</main>
+</div>

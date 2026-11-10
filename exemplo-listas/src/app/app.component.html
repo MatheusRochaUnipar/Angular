@@ -1,0 +1,16 @@
+<div style="max-width: 400px; margin: auto; padding: 20px;">
+    <h2>Lista de Nomes</h2>
+
+    <input [(ngModel)]="novoNome" type="text" placeholder="Digite um nome">
+
+    <button (click)="adicionarNome()">Adicionar</button>
+
+    <!-- Lista de nomes -->
+
+    <ul>
+        <li *ngFor="let nome of listaNomes; let i = index">
+          {{ nome }}
+          <button (click)="removerNome(i)">Remover</button>
+        </li>
+    </ul>
+</div>

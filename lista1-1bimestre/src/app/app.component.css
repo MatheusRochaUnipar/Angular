@@ -1,0 +1,45 @@
+*  {
+    font-family: Poppins, sans-serif;
+}
+
+.hotbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #262936;
+  border-bottom: 1px solid #2a2e3a;
+}
+
+.hotbar button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 92px;
+  padding: 6px 12px;
+  border: 1px solid #2a2e3a;
+  border-radius: 8px;
+  background: #000000;
+  color: #d8dce6;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.hotbar button small {
+  color: #8b92a5;
+  font-size: 11px;
+}
+
+.hotbar button.ativo {
+  background: #dd3a4a;
+  border-color: #dd3a4a;
+  color: #fff;
+}
+
+.hotbar button.ativo small {
+  color: #ffd9dd;
+}
+
+.conteudo {
+  padding: 16px;
+}

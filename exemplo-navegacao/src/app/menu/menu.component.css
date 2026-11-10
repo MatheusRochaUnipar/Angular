@@ -1,0 +1,18 @@
+nav {
+    display: flex;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #171a2b;
+}
+
+a {
+    color: #c9cde0;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+a.ativo {
+    background-color: var(--cor-fundo);
+    color: #fff;
+}
